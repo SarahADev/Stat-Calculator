@@ -45,6 +45,7 @@ function calcSanitise() {
     } else {
       //calc median, calc mode
       document.querySelector(".value-mean").innerHTML = calcMean(intArr);
+      document.querySelector(".value-median").innerHTML = calcMedian(intArr);
     }
   }
 }
@@ -59,4 +60,23 @@ function calcMean(values) {
   });
   // Sum divided by amount of values
   return count / values.length;
+}
+
+// MEDIAN
+
+function calcMedian(values) {
+  // Sort in ascending order
+  values.sort(function (a, b) {
+    return a - b;
+  });
+  //   Find halfway index
+  let halfIndex = Math.floor(values.length / 2);
+
+  if (values.length % 2) {
+    // Even number of values
+    return values[halfIndex];
+  } else {
+    // Odd number of values
+    return (values[halfIndex - 1] + values[halfIndex]) / 2.0;
+  }
 }
