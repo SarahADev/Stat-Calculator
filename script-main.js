@@ -46,6 +46,7 @@ function calcSanitise() {
       //calc median, calc mode
       document.querySelector(".value-mean").innerHTML = calcMean(intArr);
       document.querySelector(".value-median").innerHTML = calcMedian(intArr);
+      document.querySelector(".value-mode").innerHTML = calcMode(intArr);
     }
   }
 }
@@ -79,4 +80,30 @@ function calcMedian(values) {
     // Odd number of values
     return (values[halfIndex - 1] + values[halfIndex]) / 2.0;
   }
+}
+
+// MODE
+
+function calcMode(values) {
+  const mode = {};
+  // Object counting occurence of each value
+  values.forEach((number) => {
+    if (mode[number]) {
+      mode[number]++;
+    } else {
+      mode[number] = 1;
+    }
+  });
+
+  // Finding value of highest occurence
+  let modeNumber;
+  let modeCount = 0;
+  Object.entries(mode).forEach(([number, count]) => {
+    if (count > modeCount) {
+      modeNumber = number;
+      modeCount = count;
+    }
+  });
+
+  return modeNumber;
 }
