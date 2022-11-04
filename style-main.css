@@ -25,6 +25,8 @@ table{
     margin: auto;
 }
 
+/* BUTTONS STYLING */
+
 .buttons{
     display: flex;
     justify-content: space-between;
@@ -43,4 +45,10 @@ table{
     background-color: gray;
     color: white;
     border: none;
+}
+
+/* ERROR MESSAGE */
+
+.error-message{
+    text-align: center;
 }
